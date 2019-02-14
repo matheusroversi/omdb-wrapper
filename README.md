@@ -1,6 +1,6 @@
 # Spotify Wrapper
 
-[![Build Status](https://travis-ci.com/matheusroversi/spotify-wrapper.svg?branch=master)](https://travis-ci.com/matheusroversi/spotify-wrapper) [![Coverage Status](https://coveralls.io/repos/github/matheusroversi/spotify-wrapper/badge.svg?branch=master)](https://coveralls.io/github/matheusroversi/spotify-wrapper?branch=master)
+[![Build Status](https://travis-ci.com/matheusroversi/omdb-wrapper.svg?branch=master)](https://travis-ci.com/matheusroversi/omdb-wrapper) [![Coverage Status](https://coveralls.io/repos/github/matheusroversi/omdb-wrapper/badge.svg?branch=master)](https://coveralls.io/github/matheusroversi/omdb-wrapper?branch=master)
 
 A wrapper to work with the [OMDb Web API](http://www.omdbapi.com/).
 
