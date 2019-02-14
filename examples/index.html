@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>OMDb Wrapper Test</title>
+  </head>
+  <body>
+    <!--<script src="../dist/omdb-wrapper.umd.js" ></script>-->
+    <script src="../dist/omdb-wrapper.umd.js" ></script>
+    <div id="movies"></div>
+    <div id="movie"></div>
+  </body>
+
+
+  <script>
+    const moviesEl = document.getElementById('movies');
+    const movieEl = document.getElementById('movie');
+
+    const omdb = new omdbWrapper({
+      apiKEY: '19572e5c'
+    });
+
+    const movies = omdb.search.movies('harry potter');
+    movies.then(data => {
+      markup = data.Search.map(item =>
+        `<img width='100' src='${item.Poster}' alt='${item.Title}' />`
+      ).join('');
+      //markup = data;
+      //console.log(markup);
+      moviesEl.innerHTML = markup;
+    });
+
+    const movie = omdb.movie.getMovie('tt1201607');
+    movie.then(data => {
+      markup2 = `<img width='300' src='${data.Poster}' alt='${data.Title}' />`
+      movieEl.innerHTML = markup2;
+    });
+
+
+  </script>
+
+
+</html>

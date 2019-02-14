@@ -1,0 +1,73 @@
+{
+  "name": "omdb-wrapper",
+  "version": "1.0.2",
+  "description": "A wrapper to work with the OMDb Web API",
+  "main": "lib/index.js",
+  "scripts": {
+    "clear": "./node_modules/.bin/rimraf lib",
+    "build": "./node_modules/.bin/babel --out-dir lib src",
+    "builder": "npm run clear && npm run build",
+    "build:watch": "npm run build -- --watch",
+    "build:umd": "./node_modules/.bin/webpack --output-filename omdb-wrapper.umd.js",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename omdb-wrapper.umd.min.js -p",
+    "build:all": "npm run build && npm run build:umd && npm run build:umd:min",
+    "lint": "./node_modules/.bin/eslint src/*.js -v",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register --watch",
+    "test:coverage": "./node_modules/.bin/nyc npm test",
+    "test:coveralls": "./node_modules/.bin/nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "npm run test:coverage && npm run test:coveralls"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "nyc": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheusroversi/omdb-wrapper.git"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "Matheus Roversi <matheusroversi@gmail.com> (https://matheusroversi.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matheusroversi/omdb-wrapper/issues"
+  },
+  "homepage": "https://github.com/matheusroversi/omdb-wrapper#readme",
+  "dependencies": {
+    "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "chai": "^3.5.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.1",
+    "husky": "^0.11.9",
+    "mocha": "^3.2.0",
+    "nyc": "^10.2.0",
+    "rimraf": "^2.6.1",
+    "sinon": "^7.2.3",
+    "sinon-chai": "^3.3.0",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.2.3"
+  }
+}
